@@ -156,7 +156,7 @@ public class Hero {
      */
     public HeroMemento createMemento() {
         // TODO: capture the full mutable state into a HeroMemento.
-        return null;
+        return new HeroMemento(hp, mana, gold, inventory);
     }
 
     /**
@@ -166,6 +166,13 @@ public class Hero {
      */
     public void restoreFromMemento(HeroMemento memento) {
         // TODO: read the snapshot and restore the hero's mutable state.
+        if (memento == null) {
+            return;
+        }
+        this.hp = memento.getHp();
+        this.mana = memento.getMana();
+        this.gold = memento.getGold();
+        this.inventory = memento.getInventory();
     }
 
     @Override
